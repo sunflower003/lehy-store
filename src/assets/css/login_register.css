@@ -1,0 +1,231 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Clash Grotesk', sans-serif;
+}
+
+:root {
+  --black-color: #191919;
+  --grey-color: #7d7d7d;
+  --white-color: #fdf8f3;
+  --orange-color: #f6c2a4;
+  --pink-color: #e5b0aa;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+li {
+  list-style-type: none;
+}
+
+
+body {
+  background-color: var(--white-color);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form-section {
+  flex: 0.4;
+  padding: 40px 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.header .dot {
+  height: 13px;
+  width: 13px;
+  background-color: var(--black-color);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  padding-left: 70px;
+}
+
+p {
+  margin-bottom: 20px;
+  padding-left: 70px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 70px;
+}
+
+label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid var(--pink-color);
+  font-size: 1.1rem;
+  background-color: transparent;
+}
+
+.phone-input {
+  display: flex;
+}
+
+.phone-input select {
+  padding: 12px;
+  border: 1px solid var(--white-color);
+  border-radius: 4px 0 0 4px;
+}
+
+.phone-input input {
+  flex: 1;
+  border-radius: 0 4px 4px 0;
+}
+
+button {
+  padding: 12px;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  transition: .3s;
+}
+
+button:hover {
+  background-color: var(--pink-color);
+  color: var(--black-color);
+}
+
+.footer {
+  margin-top: 10px;
+}
+
+.footer a {
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+.image-section {
+  flex: 0.6;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  color: var(--white-color);
+}
+
+.quote {
+  font-size: 20px;
+  z-index: 100 ;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.details div {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
+.box-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#country-code {
+  font-size: 1.1rem;
+}
+
+.quote p {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.footer p {
+  font-size: 1rem;
+}
+
+
+/* Áp dụng cho tất cả các form */
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 70px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="password"] {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 1px solid var(--pink-color);
+  font-size: 1.1rem;
+  background-color: transparent;
+}
+
+form button {
+  padding: 12px;
+  margin-top: 15px; /* Đảm bảo button nằm riêng một hàng */
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: var(--pink-color);
+  color: var(--black-color);
+}

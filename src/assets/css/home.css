@@ -1,0 +1,480 @@
+/* ============== HOME ============= */
+.home-container {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+.home-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Màu đen nhẹ, không làm mờ ảnh */
+    z-index: 1; /* Lớp này nằm trên ảnh nền nhưng dưới phần chữ */
+}
+
+
+.home-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    row-gap: 30px;
+    text-align: center;
+    transform: translateY(80%);
+    color: var(--white-color);
+}
+
+.main-content {
+    font-size: 5rem;
+    font-weight: 500;
+    color: var(--white-color);
+
+}
+.sub-content {
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.button-content {
+    color: var(--white-color);
+    font-weight: 400;
+    font-size: 1.5rem;
+    border: 3px solid var(--white-color);
+    padding: 15px;
+    margin-inline: auto;
+    width: 200px;
+    border-radius: 40px;
+    transition: .3s;
+}
+
+.button-content:hover {
+    border-color: var(--black-color);
+    background-color: var(--black-color);
+}
+
+/*=============== PRODUCTS ===============*/
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    
+}
+
+.favorites-card {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-favorites h2{
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.text-favorites p {
+    font-size: 1.3rem;
+    margin-top: 25px;
+}
+
+.favorites-link {
+    color: var(--black-color);
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    transition: .3s;
+}
+
+.favorites-link:hover {
+    color: var(--grey-color);
+}
+
+.card-product {
+    border-right: 2px solid var(--pink-color);
+    position: relative;
+}
+
+.card-bottom {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.name-product {
+    font-size: 1.4rem;
+    color: var(--black-color);
+}
+
+.price-product {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--black-color);
+}
+
+.ri-shopping-bag-line {
+    padding: 15px;
+    font-size: 30px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    transition: .3s;
+}
+
+.ri-shopping-bag-line:hover {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+}
+
+.tag {
+    position: absolute;
+    color: var(--black-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 4px 18px;
+    top: 20px;
+    left: 15px;
+    border: none;
+}
+
+.new-tag {
+    background-color: var(--orange-color);
+}
+
+.popular-tag {
+    background-color: var(--pink-color);
+}
+
+/* ============== Grid ============= */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(12,150px);
+}
+
+.box-1 {
+    grid-column: 1/2;
+    grid-row: 1/5;
+}
+.box-2 {
+    grid-column: 2/3;
+    grid-row: 1/5;
+}
+
+.box-3 {
+    grid-column: 3/4;
+    grid-row: 1/5;
+}
+
+.box-4 {
+    grid-column: 1/3;
+    grid-row: 5/10;
+}
+
+.box-1, .box-2, .box-3 img {
+    max-height: 600px;
+}
+
+.box-4 img {
+    height: 750px;
+}
+
+
+.box-5 {
+    grid-column: 3/4;
+    grid-row: 5/10;
+    padding: 30px 20px;
+}
+
+.box-6 {
+    grid-column: 1/2;
+    grid-row: 10/13;
+    padding: 30px 20px;
+}
+.box-7 {
+    grid-column: 2/3;
+    grid-row: 10/13;
+    padding: 30px 20px;
+}
+.box-8 {
+    grid-column: 3/4;
+    grid-row: 10/13;
+    padding: 30px 20px;
+}
+
+.grid-box {
+    position: relative;
+}
+
+.grid-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.name-box {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white-color);
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+.box-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.icon-box {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    bottom: 20px;
+    color: var(--white-color);
+    font-size: 2rem;
+    padding: 10px 15px;
+    border: 1px solid var(--white-color);
+    border-radius: 100%;
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+.icon-box:hover {
+    color: var(--black-color);
+    background-color: var(--white-color);
+}
+
+.box-5, .box-6, .box-7, .box-8 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-content h1 {
+    font-weight: 500;
+    font-size: 3.2rem;
+    margin-bottom: 40px;
+}
+
+.about-content p {
+    font-size: 1.3rem;
+}
+
+.box-6 h1, .box-7 h1, .box-8 h1 {
+    font-weight: 500;
+}
+
+.box-6 p, .box-7 p, .box-8 p {
+    font-size: 1.2rem;
+}
+
+.box-8 {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border-bottom: 2px solid var(--pink-color);
+}
+
+.box-6, .box-7 {
+    border-right: 2px solid var(--pink-color);
+    border-bottom: 2px solid var(--pink-color);
+    border-top: 2px solid var(--pink-color);
+}
+
+/* ============== FAQ============= */
+
+
+.faq-main-title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+
+.faq-container {
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.faq-item {
+    border-bottom: 2px solid var(--pink-color);
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px 0;
+}
+
+.faq-question h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    max-width: 60vw;
+    font-size: 1.2rem;
+    color: var(--grey-color);
+    transition: max-height 0.3s, padding 0.3s;
+}
+
+.faq-answer.open-detail {
+    max-height: 200px;
+    padding: 10px 0;
+}
+
+
+
+.ri-arrow-down-s-line {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.open .ri-arrow-down-s-line {
+    transform: rotate(-90deg);
+}
+
+/* ============== ARTICLE SECTION ============= */
+
+.article-box {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-inline: 20px;
+}
+
+.article-card {
+    background-color: var(--white-color);
+    cursor: pointer;
+}
+
+.article-card img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 450px;
+    overflow: hidden;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-content h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--black-color);
+    margin-bottom: 10px;
+}
+
+.article-content p {
+    color: var(--grey-color);
+    font-size: 1.2rem;
+}
+
+.article-button {
+    color: var(--black-color-color);
+    font-weight: 500;
+    font-size: 1.3rem;
+    border: 3px solid var(--black-color);
+    padding: 15px 35px;
+    margin-inline: auto;
+    border-radius: 40px;
+    transition: .3s;
+}
+
+.article-button:hover {
+    color: var(--white-color);
+    background-color: var(--black-color);
+}
+
+.article-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+
+
+/* ============== SUBSCRIPTION SECTION ============= */
+
+.subscription-container {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    height: 600px;
+    position: relative;
+}
+
+.subscription-container h2 {
+    z-index: 100;
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.subscription-container p {
+    z-index: 100;
+    font-size: 1.7rem;
+    margin-bottom: 30px;
+    color: var(--white-color);
+}
+
+.subscription-form {
+    z-index: 100;
+    display: inline-flex;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: var(--white-color);
+    border-radius: 35px;
+}
+
+.subscription-form input[type="email"] {
+    background-color: var(--white-color);
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-right: 2px solid var(--pink-color);
+    width: 250px;
+}
+
+.subscription-form button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--black-color);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.subscription-form button:hover {
+    color: var(--grey-color);
+}
+
+
+
+

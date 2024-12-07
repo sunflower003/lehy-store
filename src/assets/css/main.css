@@ -1,0 +1,480 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Clash Grotesk', sans-serif;
+}
+
+:root {
+    --black-color: #191919;
+    --grey-color: #7d7d7d;
+    --white-color: #fdf8f3;
+    --orange-color: #f6c2a4;
+    --pink-color: #e5b0aa;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white-color);
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+/* ============ HEADER ============  */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+}
+
+.logo {
+    color: var(--white-color);
+    font-size: 2.2rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-links ul {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+
+.link{
+    color: var(--white-color);
+    font-weight: 500;
+    font-size: 1.3rem;
+    transition: .3s;
+}
+
+.link:hover {
+    color: var(--grey-color);
+}
+
+
+
+/* ============== FOOTER SECTION ============= */
+
+.footer {
+    margin-top: 20px;
+    display: flex;
+    gap: 120px;
+    padding: 40px 20px;
+    background-color: var(--white-color);
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--grey-color);
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: var(--black-color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.footer-section ul li a:hover {
+    color: var(--grey-color);
+}
+
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    border-top: 2px solid var(--pink-color);
+}
+
+.copyright span {
+    font-size: 1.1rem;
+    color: var(--grey-color);
+}
+
+.social-media {
+    display: flex;
+    gap: 30px;
+}
+
+.icon {
+    font-size: 30px;
+    color: var(--black-color);
+}
+
+.social-media a {
+    transition: .3s;
+}
+
+.social-media a:hover {
+    transform: translateY(-5px);
+}
+
+
+
+
+
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    padding: 10px 0;
+    list-style: none;
+    display: none !important;
+    min-width: 150px;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block !important;
+}
+
+
+.dropdown-menu li {
+    padding: 10px 20px;
+}
+
+
+.dropdown-menu li a {
+    color: var(--black-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+
+.dropdown-menu li a:hover {
+    color: var(--grey-color);
+}
+
+
+
+
+
+/********************** FEEDBACK **********************/
+
+/* Nút Feedback nhỏ bên phải dọc */
+.feedback-button {
+    position: fixed;
+    right: 15px; /* Đặt một khoảng cách nhỏ với cạnh phải để tránh bị che */
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: right center;
+    padding: 10px 15px;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 2000; /* Đảm bảo nó ở trên cùng */
+    border-radius: 5px 5px 0 0;
+    transition: .3s;
+}
+
+
+.feedback-button:hover {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+}
+
+.feedback-button.hidden {
+    opacity: 0; /* Ẩn thanh feedback khi bảng to xuất hiện */
+    pointer-events: none;
+}
+
+/* Bảng Feedback bên phải */
+.feedback-panel {
+    position: fixed;
+    right: -300px; /* Ẩn bảng feedback ở ngoài khung nhìn */
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: var(--white-color);
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+    z-index: 999;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.feedback-panel.open {
+    right: 0; /* Hiển thị bảng feedback */
+}
+
+.feedback-content h2 {
+    font-size: 1.5rem;
+    color: var(--black-color);
+    margin-bottom: 10px;
+}
+
+.feedback-content p {
+    font-size: 1.2rem;
+    color: var(--grey-color);
+    margin-bottom: 20px;
+}
+
+.feedback-content label {
+    font-size: 1rem;
+    color: var(--black-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.feedback-content input[type="range"] {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.feedback-content button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: var(--white-color);
+    background-color: var(--black-color);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.feedback-content button:hover {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+}
+
+.feedback-content button:last-child {
+    background-color: transparent;
+    color: var(--black-color);
+    margin-top: 5px;
+}
+
+
+/* Top Bar Styles */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Màu đen */
+    color: #fff; /* Màu trắng cho text */
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 500; /* Hiển thị trên cùng */
+}
+
+.top-bar-content {
+    display: inline-block;
+}
+
+/* Đẩy header xuống dưới thanh bar */
+.header {
+    margin-top: 40px; /* Khoảng cách bằng chiều cao của top bar */
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 350px;
+    max-height: 500px; /* Giới hạn chiều cao */
+    overflow-y: auto; /* Thêm cuộn dọc */
+    background-color: var(--white-color);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 200;
+    border: 1px solid var(--pink-color);
+    font-size: 1.2rem;
+}
+
+/* Tùy chỉnh thanh cuộn */
+.cart-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cart-dropdown::-webkit-scrollbar-thumb {
+    background-color: var(--pink-color);
+    border-radius: 4px;
+}
+
+.cart-dropdown::-webkit-scrollbar-track {
+    background-color: var(--white-color);
+}
+
+
+
+.cart-header h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-details {
+    flex: 1;
+}
+
+.cart-product-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.cart-product-weight,
+.cart-product-price {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-quantity {
+    font-size: 1.2rem;
+}
+
+.cart-remove {
+    font-size: 1.2rem;
+    color: var(--black-color);
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.cart-remove:hover {
+    color: var(--grey-color);
+}
+
+.cart-footer {
+    border-top: 1px solid var(--pink-color);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.checkout-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.3rem;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+}
+
+/* Show the cart on hover */
+.dropdown:hover .cart-dropdown {
+    display: block;
+}
+
+
+/* View Cart Section */
+.view-cart-section {
+    text-align: center;
+    margin: 15px 0;
+    border-top: 1px solid var(--pink-color);
+    padding-top: 10px;
+}
+
+.view-cart-link {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--black-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.view-cart-link:hover {
+    color: var(--grey-color);
+}
+
+.faq-container {
+    margin-top: 30px;
+    padding: 20px;
+  }
+  
+  .faq-main-title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  
