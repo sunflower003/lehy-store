@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
       <TopBar />
-      <Header />
+      <Header textColor="white"/>
       <main>
         <HomeSection />
         <ProductSection />

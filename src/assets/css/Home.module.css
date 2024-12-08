@@ -71,7 +71,7 @@ li {
 }
 
 .link:hover {
-    color: var(--grey-color);
+    color: var(--grey-color) !important;
 }
 
 
