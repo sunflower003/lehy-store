@@ -1,5 +1,5 @@
-// src/components/TopBar.js
 import React, { useEffect, useState } from "react";
+import styles from "../assets/css/Home.module.css";
 
 const TopBar = () => {
   const messages = [
@@ -20,8 +20,8 @@ const TopBar = () => {
   }, [messages.length]);
 
   return (
-    <div className="top-bar">
-      <div className="top-bar-content">
+    <div className={styles["top-bar"]}>
+      <div className={styles["top-bar-content"]}>
         <span>{messages[currentMessageIndex]}</span>
       </div>
     </div>

@@ -1,54 +1,57 @@
 import React from "react";
+import styles from "../assets/css/Home.module.css";
 
 const ProductSection = () => {
   return (
-    <div className="product-container">
-      <div className="card-product favorites-card">
-        <div className="text-favorites">
+    <div className={styles["product-container"]}>
+      <div className={`${styles["card-product"]} ${styles["favorites-card"]}`}>
+        <div className={styles["text-favorites"]}>
           <h2>FAVORITES</h2>
           <p>We have made a selection of our customers' favorite products</p>
         </div>
-        <a href="/" className="favorites-link">
+        <a href="/" className={styles["favorites-link"]}>
           SEE ALL
         </a>
       </div>
-      <div className="card-product">
-        <a href="/" className="product-link">
-          <span className="tag new-tag">NEW!</span>
-          <span className="tag" />
-          <img src="assets/img/product1.jpg" alt="" />
-          <div className="card-bottom">
-            <div className="infor-product">
-              <p className="name-product">Botanical Garden</p>
-              <p className="price-product">$87</p>
+      <div className={styles["card-product"]}>
+        <a href="/" className={styles["product-link"]}>
+          <span className={`${styles["tag"]} ${styles["new-tag"]}`}>NEW!</span>
+          <span className={styles["tag"]} />
+          <img src="assets/img/product1.jpg" alt="Botanical Garden" />
+          <div className={styles["card-bottom"]}>
+            <div className={styles["infor-product"]}>
+              <p className={styles["name-product"]}>Botanical Garden</p>
+              <p className={styles["price-product"]}>$87</p>
             </div>
-            <i className="ri-shopping-bag-line" />
+            <i className={`ri-shopping-bag-line ${styles.ic}`} />
           </div>
         </a>
       </div>
-      <div className="card-product">
-        <a href="/" className="product-link">
-          <img src="assets/img/product2.jpg" alt="" />
-          <div className="card-bottom">
-            <div className="infor-product">
-              <p className="name-product">Aromatic diffuser</p>
-              <p className="price-product">$65</p>
+      <div className={styles["card-product"]}>
+        <a href="/" className={styles["product-link"]}>
+          <img src="assets/img/product2.jpg" alt="Aromatic diffuser" />
+          <div className={styles["card-bottom"]}>
+            <div className={styles["infor-product"]}>
+              <p className={styles["name-product"]}>Aromatic diffuser</p>
+              <p className={styles["price-product"]}>$65</p>
             </div>
-            <i className="ri-shopping-bag-line" />
+            <i className={`ri-shopping-bag-line ${styles.ic}`} />
           </div>
         </a>
       </div>
-      <div className="card-product">
-        <a href="/" className="product-link">
-          <span className="tag popular-tag">POPULAR</span>
-          <span className="tag" />
-          <img src="assets/img/product3.jpg" alt="" />
-          <div className="card-bottom">
-            <div className="infor-product">
-              <p className="name-product">Handmade mug</p>
-              <p className="price-product">$40</p>
+      <div className={styles["card-product"]}>
+        <a href="/" className={styles["product-link"]}>
+          <span className={`${styles["tag"]} ${styles["popular-tag"]}`}>
+            POPULAR
+          </span>
+          <span className={styles["tag"]} />
+          <img src="assets/img/product3.jpg" alt="Handmade mug" />
+          <div className={styles["card-bottom"]}>
+            <div className={styles["infor-product"]}>
+              <p className={styles["name-product"]}>Handmade mug</p>
+              <p className={styles["price-product"]}>$40</p>
             </div>
-            <i className="ri-shopping-bag-line" />
+            <i className={`ri-shopping-bag-line ${styles.ic}`} />
           </div>
         </a>
       </div>

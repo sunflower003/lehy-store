@@ -1,36 +1,18 @@
 import React from "react";
-import TopBar from "./components/TopBar";
-import Header from "./components/Header";
-import HomeSection from "./components/HomeSection";
-import ProductSection from "./components/ProductSection";
-import GridSection from "./components/GridSection";
-import FAQ from "./components/FAQ";
-import Articles from "./components/Articles";
-import Subscription from "./components/Subscriptions";
-import Feedback from "./components/Feedback";
-import Footer from "./components/Footer";
-import Copyright from "./components/Copyright";
-import "./assets/css/main.css";
-import "./assets/css/home.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login"
 
 
 const App = () => {
   return (
-    <body>
-      <TopBar />
-      <Header />
-      <main>
-        <HomeSection />
-        <ProductSection />
-        <GridSection />
-        <FAQ />
-        <Articles />
-        <Subscription />
-        <Footer />
-        <Copyright />
-      </main>
-      <Feedback />
-    </body>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      
+      </Routes>
+    </Router>
   );
 };
 
