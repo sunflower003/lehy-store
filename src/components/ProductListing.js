@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../assets/css/ProductList.module.css";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
@@ -52,39 +53,50 @@ const products = [
   
 ];
 
-const ProductCard = ({ product }) => (
-  <div className={styles.pl_productCard}>
-    <div className={styles.pl_productImage}>
-      <img src={product.image} alt={product.name} />
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate(); // Sử dụng useNavigate để điều hướng
+
+  const handleAddToCart = () => {
+    navigate(`/product/${product.id}`); // Điều hướng tới trang ProductDetail với ID sản phẩm
+  };
+
+  return (
+    <div className={styles.pl_productCard}>
+      <div className={styles.pl_productImage}>
+        <img src={product.image} alt={product.name} />
+      </div>
+      <div className={styles.pl_productInfo}>
+        <h2 className={styles.pl_productName}>{product.name}</h2>
+        <p className={styles.pl_productPrice}>
+          {product.price} {product.weight}
+        </p>
+        {product.isOutOfStock ? (
+          <button className={styles.pl_outOfStockButton}>
+            Temporarily Out of Stock
+          </button>
+        ) : (
+          <button
+            className={styles.pl_addToCartButton}
+            onClick={handleAddToCart} // Gọi hàm khi bấm nút
+          >
+            Add to Cart
+          </button>
+        )}
+      </div>
     </div>
-    <div className={styles.pl_productInfo}>
-      <h2 className={styles.pl_productName}>{product.name}</h2>
-      <p className={styles.pl_productPrice}>
-        {product.price} {product.weight}
-      </p>
-      {product.isOutOfStock ? (
-        <button className={styles.pl_outOfStockButton}>Temporarily Out of Stock</button>
-      ) : (
-        <button className={styles.pl_addToCartButton}>Add to Cart</button>
-      )}
-    </div>
-  </div>
-);
+  );
+};
 
 const ProductListing = () => (
   <div className={styles.pl_productListingPage}>
     <header className={styles.pl_productListingHeader}>
       <h1>Home Candles</h1>
       <p className={styles.pl_productListingDescription}>
-        Each Home Candle (200g) is lovingly crafted by hand in England's rolling South Downs. Add an air
-        of luxury to any room, encased in our timeless and iconic cream and black design.
+        Each Home Candle (200g) is lovingly crafted by hand in England's rolling
+        South Downs. Add an air of luxury to any room, encased in our timeless
+        and iconic cream and black design.
       </p>
     </header>
-
-    <div className={styles.pl_productListingFilters}>
-      <button className={styles.pl_filterButton}>Filter By Scent Family</button>
-      <button className={styles.pl_sortButton}>Sort by</button>
-    </div>
 
     <div className={styles.pl_productGrid}>
       {products.map((product) => (
