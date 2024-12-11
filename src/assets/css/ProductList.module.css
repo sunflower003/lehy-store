@@ -1,0 +1,102 @@
+  .pl_productListingPage {
+    margin-top: 200px;
+    padding: 20px;
+    background-color: var(--white-color);
+  }
+  
+  .pl_productListingHeader {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .pl_productListingHeader h1 {
+    font-size: 2.5rem;
+    color: var(--black-color);
+  }
+  
+  .pl_productListingDescription {
+    font-size: 1.2rem;
+    color: var(--grey-color);
+  }
+  
+  .pl_productListingFilters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .pl_filterButton, .pl_sortButton {
+    background-color: var(--white-color);
+    border: 1px solid var(--grey-color);
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pl_filterButton:hover, .pl_sortButton:hover {
+    background-color: var(--pink-color);
+    color: var(--white-color);
+  }
+  
+  .pl_productGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .pl_productCard {
+    background-color: var(--white-color);
+    border: 1px solid var(--pink-color);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .pl_productCard:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pl_productImage img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  
+  .pl_productInfo {
+    margin-top: 10px;
+  }
+  
+  .pl_productName {
+    font-size: 1.5rem;
+    color: var(--black-color);
+    margin-bottom: 10px;
+  }
+  
+  .pl_productPrice {
+    font-size: 1.2rem;
+    color: var(--grey-color);
+    margin-bottom: 10px;
+  }
+  
+  .pl_outOfStockButton {
+    background-color: var(--grey-color);
+    color: var(--white-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: not-allowed;
+  }
+  
+  .pl_addToCartButton {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .pl_addToCartButton:hover {
+    background-color: var(--pink-color);
+    color: var(--black-color);
+  }
