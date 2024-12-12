@@ -23,15 +23,15 @@ const productRoutes = require("./routes/product");
 const categoryRoutes = require("./routes/category");
 const userRoutes = require("./routes/user");
 const cartRoutes = require("./routes/cart");
+const bagRoutes = require("./routes/bag"); // Route cho bag
+const bagRouter = require("./routes/bagRoutes");
 
 // Use routes
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/carts", cartRoutes);
+app.use("/api/bag", bagRoutes); // Đúng tên route bag
+app.use("/api/bag", bagRouter);
 
-
-// Start the server
-app.listen(PORT, () =>
-  console.log(`Server is running at http://localhost:${PORT}`)
-);
+//

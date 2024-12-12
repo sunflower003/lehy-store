@@ -21,6 +21,12 @@ router.post("/:userId", async (req, res) => {
   const { productId, quantity } = req.body;
 
   try {
+    // Kiểm tra sản phẩm có tồn tại không
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found." });
+    }
+
     let cart = await Cart.findOne({ userId: req.params.userId });
 
     if (!cart) {
