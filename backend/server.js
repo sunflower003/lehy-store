@@ -22,16 +22,27 @@ mongoose
 const productRoutes = require("./routes/product");
 const categoryRoutes = require("./routes/category");
 const userRoutes = require("./routes/user");
-const cartRoutes = require("./routes/cart");
-const bagRoutes = require("./routes/bag"); // Route cho bag
-const bagRouter = require("./routes/bagRoutes");
+const bagRoutes = require("./routes/bag");
 
 // Use routes
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/users", userRoutes);
-app.use("/api/carts", cartRoutes);
-app.use("/api/bag", bagRoutes); // Đúng tên route bag
-app.use("/api/bag", bagRouter);
+app.use("/api/bags", bagRoutes);
 
-//
+
+// Add error handling middleware
+app.use((req, res, next) => {
+  res.status(404).json({ message: "API route not found" });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Internal Server Error", error: err.message });
+});
+
+// Start the server
+app.listen(PORT, () =>
+  console.log(`Server is running at http://localhost:${PORT}`)
+);

@@ -1,71 +1,59 @@
 const express = require("express");
-const router = express.Router();
 const Bag = require("../models/Bag");
+const router = express.Router();
 
-// Lấy giỏ hàng theo userId
-router.get("/:userId", async (req, res) => {
+// POST: Thêm sản phẩm vào giỏ hàng
+router.post("/add", async (req, res) => {
   try {
-    const bag = await Bag.findOne({ userId: req.params.userId }).populate("items.productId");
-    if (!bag) {
-      return res.status(404).json({ message: "Bag not found" });
-    }
-    res.status(200).json(bag);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+    const { userId, productId, name, image, price, quantity } = req.body;
 
-// Thêm sản phẩm vào giỏ hàng
-router.post("/:userId/add", async (req, res) => {
-  const { productId, quantity } = req.body;
-  try {
-    let bag = await Bag.findOne({ userId: req.params.userId });
+    // Tìm giỏ hàng của user
+    let bag = await Bag.findOne({ userId });
 
-    // Nếu chưa có giỏ hàng, tạo mới
     if (!bag) {
+      // Nếu giỏ hàng chưa tồn tại, tạo mới
       bag = new Bag({
-        userId: req.params.userId,
-        items: [{ productId, quantity }],
+        userId,
+        items: [{ productId, name, image, price, quantity }],
       });
     } else {
-      // Kiểm tra nếu sản phẩm đã tồn tại
-      const itemIndex = bag.items.findIndex((item) => item.productId.toString() === productId);
+      // Nếu giỏ hàng đã tồn tại, kiểm tra xem sản phẩm đã có chưa
+      const productIndex = bag.items.findIndex(
+        (item) => item.productId.toString() === productId
+      );
 
-      if (itemIndex > -1) {
-        // Nếu sản phẩm đã tồn tại, cập nhật số lượng
-        bag.items[itemIndex].quantity += quantity;
+      if (productIndex > -1) {
+        // Nếu sản phẩm đã có, cập nhật số lượng
+        bag.items[productIndex].quantity += quantity;
       } else {
-        // Nếu sản phẩm chưa tồn tại, thêm mới
-        bag.items.push({ productId, quantity });
+        // Nếu sản phẩm chưa có, thêm mới vào giỏ hàng
+        bag.items.push({ productId, name, image, price, quantity });
       }
     }
 
-    bag.updatedAt = new Date(); // Cập nhật thời gian
     await bag.save();
-    res.status(200).json(bag);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(200).json({ message: "Product added to bag", bag });
+  } catch (error) {
+    res.status(500).json({ message: "Error adding product to bag", error });
   }
 });
 
-// Xóa sản phẩm khỏi giỏ hàng
-router.delete("/:userId/remove/:productId", async (req, res) => {
+// GET: Lấy giỏ hàng của user
+router.get("/:userId", async (req, res) => {
   try {
-    const { userId, productId } = req.params;
+    const { userId } = req.params;
+
+    // Tìm giỏ hàng theo userId
     const bag = await Bag.findOne({ userId });
 
     if (!bag) {
-      return res.status(404).json({ message: "Bag not found" });
+      return res.status(200).json({ items: [] }); // Trả về giỏ hàng trống nếu không tìm thấy
     }
 
-    // Loại bỏ sản phẩm khỏi giỏ hàng
-    bag.items = bag.items.filter((item) => item.productId.toString() !== productId);
-    bag.updatedAt = new Date(); // Cập nhật thời gian
-    await bag.save();
-
-    res.status(200).json(bag);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(200).json({ items: bag.items });
+  } catch (error) {
+    console.error("Error fetching bag:", error.message);
+    res.status(500).json({ message: "Error fetching bag", error: error.message });
   }
 });
 
